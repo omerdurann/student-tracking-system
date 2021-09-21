@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/images/Lacivert.png" type="image/x-icon" />
+    <title>Eğitim Yıldızı</title>
+
+    <!-- Bootstrap Core and vandor -->
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Core css -->
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+</head>
+
+<body class="font-muli dark-mode gradient right_tb_toggle">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+        </div>
+    </div>
+
+    <div id="main_content">
+        <!-- Start Main top header -->
+        <div id="header_top" class="header_top">
+            <div class="container">
+                <div class="hleft">
+                    <a class="header-brand" href="index"><i class="fa fa-graduation-cap brand-logo"></i></a>
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" class="nav-link icon menu_toggle"><i
+                                class="fe fe-align-center"></i></a>
+                    </div>
+                </div>
+                <div class="hright">
+                    <a href="logout" class="nav-link icon settingbar"><i class="fe fe-power"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Start Main leftbar navigation -->
+        <div id="left-sidebar" class="sidebar">
+            <h5 class="brand-name">Eğitim Yıldızı<a href="javascript:void(0)" class="menu_option float-right"><i
+                        class="icon-grid font-16" data-toggle="tooltip" data-placement="left"
+                        title="Grid & List Toggle"></i></a></h5>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu-uni">Menü</a></li>
+            </ul>
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="menu-uni" role="tabpanel">
+                    <nav class="sidebar-nav">
+                        <ul class="metismenu">
+                            <li><a href="index"><i class="fa fa-dashboard"></i><span>Ana Sayfa</span></a></li>
+                            <li><a href="students"><i class="fa fa-users"></i><span>Öğrenciler</span></a></li>
+                            <li><a href="courses"><i class="fa fa-book"></i><span>Kütüphane</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Start project content area -->
+        <div class="page">
+            <!-- Start Page header -->
+            <div class="section-body" id="page_top">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Page title and tab -->
+            <div class="section-body">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="header-action">
+                            <h1 class="page-title">Ödev Ver</h1>
+                            <ol class="breadcrumb page-breadcrumb">
+                                <li class="breadcrumb-item"><a>Eğitim Yıldızı</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Ödev Ver</li>
+                            </ol>
+                        </div>
+                        <ul class="nav nav-tabs page-header-tab">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#Task-add">Ödev
+                                    Ver</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+            <!--Ödevlendirme-->
+            <div class="section-body mt-4">
+                <div class="container-fluid">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Task-add">
+                            <!--Ogrpro-->
+                            <div class="section-body mt-4">
+                                <div class="container-fluid">
+                                    <div class="tab-content">
+                                        <div class="row clearfix">
+                                            <div class="container-fluid">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="media">
+                                                            <img class="avatar avatar-xl mr-3"
+                                                                src="/assets/images/sm/avatar.jpg" alt="avatar">
+                                                            <div class="media-body">
+                                                                {{#each ögrenci}}
+                                                                <h5 class="m-10">{{adı}} {{soyisim}}</h5>
+                                                                {{/each}}
+                                                                <p class="text-muted mb-0">Öğrenci</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Kitap2-->
+                                        <form action="task_add?id={{ögr_id}},{{kit_id}}" method="post">
+                                            <div class="table-responsive card">
+                                                <div class="card-header">
+                                                    <div class="col-lg-11 col-md-4 col-sm-6">
+                                                        <div class="input-group">
+                                                            <input type="text" id="ara" onkeyup="filterFunction()"
+                                                                class="form-control" name="search1" autocomplete="off"
+                                                                style="color:#7d8490;" placeholder="İçerik Ara">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-options ">
+                                                        <a href="#" class="card-options-collapse"
+                                                            data-toggle="card-collapse"><i
+                                                                class="fe fe-chevron-up"></i></a>
+                                                    </div>
+                                                </div>
+                                                <table
+                                                    class="table table-hover table-striped table-vcenter text-nowrap mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Konu</th>
+                                                            <th>Test Adı</th>
+                                                            <th>Sayfa</th>
+                                                            <th>Soru Sayısı</th>
+                                                            <th>Ödev Ver</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id='all'>
+                                                        {{#each all}}
+                                                        <tr>
+                                                            <td class="width45">{{@index}}</td>
+                                                            <td>{{alt_baslik}}</td>
+                                                            <td><span>{{test_adi}}</span></td>
+                                                            <td>{{sayfa}}</td>
+                                                            <td>{{soru_sayisi}}</td>
+                                                            <td>
+                                                                <div class="custom-controls-stacked">
+                                                                    <label
+                                                                        class="custom-control custom-checkbox custom-control-inline">
+                                                                        <input type="checkbox"
+                                                                            class="custom-control-input" name="alt_konu"
+                                                                            value="{{_id}}">
+                                                                        <span class="custom-control-label">Seç</span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-body">
+
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Ödev İçeriği</h3>
+                                                        <div class="card-options">
+                                                            <a href="#" class="card-options-collapse"
+                                                                data-toggle="card-collapse"></a>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Ödev Başlığı <span
+                                                                class="text-danger">*</span></label>
+                                                        <div class="col-md-7">
+                                                            <input type="text" name="ödv_bas" class="form-control"
+                                                                autocomplete="off" style="color:#7d8490;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Açıklama <span
+                                                                class="text-danger">*</span></label>
+                                                        <div class="col-md-7">
+                                                            <textarea rows="4" class="form-control no-resize"
+                                                                name="ödv_ack" autocomplete="off" style="color:#7d8490;"
+                                                                placeholder="Açıklama Giriniz..."></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Ödev Tarihi <span
+                                                                class="text-danger">*</span></label>
+                                                        <div class="col-md-3">
+                                                            <input type="date" name="bit_tar" class="form-control"
+                                                                autocomplete="off" style="color:#7d8490;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <button type="submit" class="btn bg-red text-white">Ödev
+                                                            Ver</button>
+                                                        <a href="" type="submit"
+                                                            class="btn btn-outline-secondary">İptal</a>
+                                                    </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <script>
+        function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("ara");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("all");
+            a = div.getElementsByTagName("tr");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+    <!-- Start Main project js, jQuery, Bootstrap -->
+    <script src="/assets/bundles/lib.vendor.bundle.js"></script>
+
+    <!-- Start project main js  and page js -->
+    <script src="/assets/js/core.js"></script>
+
+</body>
+
+</html>

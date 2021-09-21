@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/images/Lacivert.png" type="image/x-icon" />
+    <title>Eğitim Yıldızı</title>
+
+    <!-- Bootstrap Core and vandor -->
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/plugins/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/assets/plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="/assets/plugins/sweetalert/sweetalert.css">
+
+    <!-- Core css -->
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+</head>
+
+<body class="font-muli dark-mode gradient right_tb_toggle">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+        </div>
+    </div>
+
+    <div id="main_content">
+        <!-- Start Main top header -->
+        <div id="header_top" class="header_top">
+            <div class="container">
+                <div class="hleft">
+                    <a class="header-brand" href="index"><i class="fa fa-graduation-cap brand-logo"></i></a>
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" class="nav-link icon menu_toggle"><i
+                                class="fe fe-align-center"></i></a>
+                    </div>
+                </div>
+                <div class="hright">
+                    <a href="logout" class="nav-link icon settingbar"><i class="fe fe-power"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Start Main leftbar navigation -->
+        <div id="left-sidebar" class="sidebar">
+            <h5 class="brand-name">Eğitim Yıldızı<a href="javascript:void(0)" class="menu_option float-right"><i
+                        class="icon-grid font-16" data-toggle="tooltip" data-placement="left"
+                        title="Grid & List Toggle"></i></a></h5>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu-uni">Menü</a></li>
+            </ul>
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="menu-uni" role="tabpanel">
+                    <nav class="sidebar-nav">
+                        <ul class="metismenu">
+                            <li><a href="index"><i class="fa fa-dashboard"></i><span>Ana Sayfa</span></a></li>
+                            <li class="active"><a href="students"><i class="fa fa-users"></i><span>Öğrenciler</span></a>
+                            </li>
+                            <li><a href="courses"><i class="fa fa-book"></i><span>Kütüphane</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Start project content area -->
+        <div class="page">
+            <!-- Start Page header -->
+            <div class="section-body" id="page_top">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Page title and tab -->
+            <div class="section-body">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center ">
+                        <div class="header-action">
+                            <h1 class="page-title">Öğrenciler</h1>
+                            <ol class="breadcrumb page-breadcrumb">
+                                <li class="breadcrumb-item"><a>Eğitim Yıldızı</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Öğrenciler</li>
+                            </ol>
+                        </div>
+                        <ul class="nav nav-tabs page-header-tab">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                    href="#Student-all">Listele</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Student-add">Ekle</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="section-body mt-4">
+                <div class="container-fluid">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Student-all">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table
+                                            class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5"
+                                            style="color: #7d8490;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Öğrenci Numarası</th>
+                                                    <th>Adı Soyadı</th>
+                                                    <th>Sınıfı</th>
+                                                    <th>Email</th>
+                                                    <th>Telefon</th>
+                                                    <th>Kayıt Tarihi</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="all">
+                                                {{#each all}}
+                                                <tr>
+                                                    <td>{{id}}</td>
+                                                    <td><span class="font-16">{{adı}} {{soyisim}}</span></td>
+                                                    <td>{{sınıf}}</td>
+                                                    <td>{{email}}</td>
+                                                    <td>{{telefon}}</td>
+                                                    <td>{{date}}</td>
+                                                    <td>
+                                                        <button type="button" name="deneme" class="btn btn-icon btn-sm"
+                                                            title="View" data-toggle="tab"
+                                                            onclick="location.href='ogrpro?id={{id}}';"><i
+                                                                class="fa fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-icon btn-sm" title="Edit"
+                                                            data-toggle="tab"
+                                                            onclick="location.href='edit-students?id={{id}}';"><i
+                                                                class="fa fa-edit"></i></button>
+                                                        <a type="button"
+                                                            onclick="return confirm('DİKKAT!!! SİLMEK İÇİN EMİN MİSİNİZ')"
+                                                            href='delete?id={{id}}'><i
+                                                                class="fa fa-trash-o text-danger"></i></a>
+                                                    </td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Öğrenci -->
+                        <div class="tab-pane" id="Student-add">
+                            <div class="row clearfix">
+                                <div class="container-fluid">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">TEMEL BİLGİLER</h3>
+                                            <div class="card-options ">
+                                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
+                                                        class="fe fe-chevron-up"></i></a>
+                                            </div>
+                                        </div>
+                                        <form class="card-body" action="add" method="post" autocomplete="off">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Adı <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="ogrenciadı" class="form-control"
+                                                        style="color:#7d8490;" placeholder="Adını Giriniz" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Soyadı <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="ogrencisoyadı" class="form-control"
+                                                        style="color:#7d8490;" placeholder="Soyadını Giriniz" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Email <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="email" class="form-control"
+                                                        style="color:#7d8490;" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Sınıf <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <select class="form-control input-height" name="sınıf"
+                                                        style="color:#7d8490;" required>
+                                                        <option value="">Sınıfı Seçiniz...</option>
+                                                        {{#each allsınıf}}
+                                                        <option value={{_id}}>{{sınıf}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Telefon Numarası <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="telno" class="form-control"
+                                                        style="color:#7d8490;" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Veli Adı <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="veliad" class="form-control"
+                                                        style="color:#7d8490;" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Veli Telefon Numarası <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="velitelno" class="form-control"
+                                                        style="color:#7d8490;" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Okulu <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="okulu" class="form-control"
+                                                        style="color:#7d8490;" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <button name="add" type="submit" class="btn btn-primary"
+                                                    onclick="return confirm('DİKKAT!!! EKLEMEK İÇİN EMİN MİSİNİZ')">Ekle</button>
+                                                <a href="students" type="submit"
+                                                    class="btn btn-outline-secondary">İptal</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Öğrenci -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start Main project js, jQuery, Bootstrap -->
+    <script src="/assets/bundles/lib.vendor.bundle.js"></script>
+
+    <!-- Start Plugin Js -->
+    <script src="/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/bundles/dataTables.bundle.js"></script>
+    <script src="/assets/bundles/fullcalendar.bundle.js"></script>
+
+    <!-- Start project main js  and page js -->
+    <script src="/assets/js/core.js"></script>
+    <script src="/assets/js/page/dialogs.js"></script>
+    <script src="/assets/js/table/datatable.js"></script>
+    <script src="/assets/js/page/calendar.js"></script>
+</body>
+
+</html>

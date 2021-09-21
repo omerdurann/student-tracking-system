@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/images/Lacivert.png" type="image/x-icon" />
+    <title>Eğitim Yıldızı</title>
+
+    <!-- Bootstrap Core and vandor -->
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Core css -->
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+</head>
+
+<body class="font-muli dark-mode gradient right_tb_toggle">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+        </div>
+    </div>
+    <div id="main_content">
+        <!-- Start Main top header -->
+        <div id="header_top" class="header_top">
+            <div class="container">
+                <div class="hleft">
+                    <a class="header-brand" href="index"><i class="fa fa-graduation-cap brand-logo"></i></a>
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" class="nav-link icon menu_toggle"><i
+                                class="fe fe-align-center"></i></a>
+                    </div>
+                </div>
+                <div class="hright">
+                    <a href="logout" class="nav-link icon settingbar"><i class="fe fe-power"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Start Main leftbar navigation -->
+        <div id="left-sidebar" class="sidebar">
+            <h5 class="brand-name">Eğitim Yıldızı<a href="javascript:void(0)" class="menu_option float-right"><i
+                        class="icon-grid font-16" data-toggle="tooltip" data-placement="left"
+                        title="Grid & List Toggle"></i></a></h5>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu-uni">Menü</a></li>
+            </ul>
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="menu-uni" role="tabpanel">
+                    <nav class="sidebar-nav">
+                        <ul class="metismenu">
+                            <li><a href="index"><i class="fa fa-dashboard"></i><span>Ana Sayfa</span></a></li>
+                            <li><a href="students"><i class="fa fa-users"></i><span>Öğrenciler</span></a></li>
+                            <li><a href="courses"><i class="fa fa-book"></i><span>Kütüphane</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start project content area -->
+        <div class="page">
+            <!-- Start Page header -->
+            <div class="section-body" id="page_top">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Page title and tab -->
+            <div class="section-body">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center ">
+                        <div class="header-action">
+                            <h1 class="page-title">Öğrenciler</h1>
+                            <ol class="breadcrumb page-breadcrumb">
+                                <li class="breadcrumb-item"><a>Eğitim Yıldızı</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Öğrenciler</li>
+                            </ol>
+                        </div>
+                        <ul class="nav nav-tabs page-header-tab">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                    href="#Student-profile">Öğrenci Profili</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="section-body mt-4">
+                <div class="container-fluid">
+                    <div class="tab-content">
+                        <!--Öğrenci Profili-->
+                        <div class="tab-pane active" id="Student-profile">
+                            <div class="row">
+                                {{#each all}}
+                                <div class="col-xl-12 col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Öğrenci Profil</h3>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="container">
+                                                    <div class="media row">
+                                                        <img class="avatar avatar-xl mr-3"
+                                                            src="/assets/images/sm/avatar.jpg" alt="avatar">
+                                                        <div class="col">
+                                                            <div class="media-body">
+                                                                <h5 class="m-10">{{adı}} {{soyisim}}</h5>
+                                                                <p class="text-muted mb-0">Öğrenci</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <form action="viewtask?id={{id}}" method="POST">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3 col-form-label">Tarih <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-daterange input-group"
+                                                                            data-provide="datepicker">
+                                                                            <input type="date" name="date"
+                                                                                data-provide="datepicker"
+                                                                                class="form-control text-white">
+                                                                        </div>
+                                                                    </div>
+                                                                    <button type="submid"
+                                                                        class="btn bg-success text-white">Ödev
+                                                                        Görüntüle</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a href="raporla?id={{id}}" type="button" class="btn btn-success"><i
+                                                    class="fa fa-search"></i>Raporla</a>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <b>Sınıfı</b>
+                                                    <div class="pull-right">{{sınıf}}</div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Email </b>
+                                                    <div class="pull-right">{{email}}</div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Telefon</b>
+                                                    <div class="pull-right">{{telefon}}</div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Veli Adı</b>
+                                                    <div class="pull-right">{{veliadı}}</div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Veli Telefon</b>
+                                                    <div class="pull-right">{{velitel}}</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                                <!--Kitaplık-->
+                                <div class="section-body mt-4 mb-4">
+                                    <div class="container-fluid">
+                                        <div class="d-flex justify-content-between align-items-center ">
+                                            <div class="header-action">
+                                                <h1 class="page-title">Kitaplık</h1>
+                                                <ol class="breadcrumb page-breadcrumb">
+                                                    <li class="breadcrumb-item"><a>Öğrenci</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">Kitaplığı
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container-fluid mb-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-10 col-md-4 col-sm-6">
+                                                    <div class="input-group">
+                                                        <input type="text" id="ara" onkeyup="filterFunction()"
+                                                            class="form-control" style="color:#7d8490;"
+                                                            autocomplete="off" placeholder="Ara">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                                    <a href="kitapekle?id={{id}}"
+                                                        class="btn btn-sm btn-primary btn-block" title=""><i
+                                                            class="fe fe-plus mr-2"></i>Kitap Ekle</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive card">
+                                        <table class="table table-hover table-vcenter table-striped mb-0 text-nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>Kitap ID</th>
+                                                    <th>Kitap Adı</th>
+                                                    <th></th>
+                                                    <th>Sınıfı</th>
+                                                    <th>Kitap Türü</th>
+                                                    <th></th>
+                                                    <th>Kitap Alma Tarihi</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="all">
+                                                {{#each ögr_küt}}
+                                                <tr>
+                                                    <td>{{kit_id}}</td>
+                                                    <td><span class="font-16">{{kit_adı}}</span></td>
+                                                    <th></th>
+                                                    <td>{{kit_snf}}</td>
+                                                    <td>{{kit_türü}}</td>
+                                                    <td></td>
+                                                    <td>{{date}}</td>
+                                                    <td>
+                                                        <a type="button" class="btn btn-icon btn-sm" title="Edit"
+                                                            data-toggle="tab"
+                                                            onclick="location.href='task?id={{kit_id}},{{id}}';"><i
+                                                                class="fa fa-edit"></i></a>
+                                                        <a type="button"
+                                                            onclick="return confirm('DİKKAT!!! SİLMEK İÇİN EMİN MİSİNİZ')"
+                                                            href="kit_delete?id={{kit_id}},{{id}}"><i
+                                                                class="fa fa-trash-o text-danger"></i></a>
+                                                    </td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="section-body mt-4 mb-4">
+                                        <div class="container-fluid">
+                                            <div class="d-flex justify-content-between align-items-center ">
+                                                <div class="header-action">
+                                                    <h1 class="page-title">Ödevler</h1>
+                                                    <ol class="breadcrumb page-breadcrumb">
+                                                        <li class="breadcrumb-item"><a>Öğrenci</a></li>
+                                                        <li class="breadcrumb-item active" aria-current="page">Ödevleri
+                                                        </li>
+
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane active" id="TaskBoard-all">
+                                        <div class="table-responsive">
+                                            <table
+                                                class="table table-hover table-vcenter mb-0 table_custom spacing8 text-nowrap">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Güncel Ödevler</th>
+                                                        <th>Ödev Tarihi</th>
+                                                        <th>Durumu</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {{#each ödv}}
+                                                    <tr>
+                                                        <td>{{@index}}</td>
+                                                        <td>
+                                                            <h6 class="mb-0">{{ödv_baslik}}</h6>
+                                                            <span>{{ödv_açıklama}}</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="text-pink">Ödev Tarihi: {{ödv_bitş}}</div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="tag tag-blue">Devam Ediyor</span>
+                                                        </td>
+                                                    </tr>
+                                                    {{/each}}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
+                                <!--Kitaplık-->
+                            </div>
+                        </div>
+                        <!--Öğrenci Profili-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("ara");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("all");
+            a = div.getElementsByTagName("tr");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+    <!-- Start Main project js, jQuery, Bootstrap -->
+    <script src="/assets/bundles/lib.vendor.bundle.js"></script>
+
+    <!-- Start project main js  and page js -->
+    <script src="/assets/js/core.js"></script>
+</body>
+
+</html>

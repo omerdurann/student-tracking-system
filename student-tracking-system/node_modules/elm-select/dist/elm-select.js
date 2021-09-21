@@ -1,0 +1,55 @@
+"use strict";
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = "function" == typeof Symbol && "symbol" == _typeof2(Symbol.iterator) ? function (n) {
+  return typeof n === "undefined" ? "undefined" : _typeof2(n);
+} : function (n) {
+  return n && "function" == typeof Symbol && n.constructor === Symbol ? "symbol" : typeof n === "undefined" ? "undefined" : _typeof2(n);
+};!function (n) {
+  if ("object" === ("undefined" == typeof exports ? "undefined" : _typeof(exports)) && "undefined" != typeof module) module.exports = n();else if ("function" == typeof define && define.amd) define([], n);else {
+    var t;t = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : this, t.elmSelect = n();
+  }
+}(function () {
+  return function n(t, e, o) {
+    function r(f, u) {
+      if (!e[f]) {
+        if (!t[f]) {
+          var c = "function" == typeof require && require;if (!u && c) return c(f, !0);if (i) return i(f, !0);var p = new Error("Cannot find module '" + f + "'");throw p.code = "MODULE_NOT_FOUND", p;
+        }var l = e[f] = { exports: {} };t[f][0].call(l.exports, function (n) {
+          var e = t[f][1][n];return r(e ? e : n);
+        }, l, l.exports, n, t, e, o);
+      }return e[f].exports;
+    }for (var i = "function" == typeof require && require, f = 0; f < o.length; f++) {
+      r(o[f]);
+    }return r;
+  }({ 1: [function (n, t) {
+      function e(n, t, r, i) {
+        if ("string" == typeof n) {
+          if (i = "string" == typeof i ? e(i, null, null, document)[0] : i, !i) throw new Error("Cannot find the parent element.");n = i.querySelectorAll(n);
+        }if (o(n, NodeList) || o(n, HTMLCollection) || (n = [n]), "function" == typeof t) {
+          Array.isArray(r) || (r = [r]);for (var f = 0; f < n.length; ++f) {
+            var u = [n[f]].concat(r);t.apply(this, u);
+          }
+        }return n;
+      }var o = n("typpy");t.exports = e;
+    }, { typpy: 4 }], 2: [function (n, t) {
+      var e = n("noop6");!function () {
+        var n = "name";"string" != typeof e.name && Object.defineProperty(Function.prototype, n, { get: function get() {
+            var t = this.toString().trim().match(/^function\s*([^\s(]+)/)[1];return Object.defineProperty(this, n, { value: t }), t;
+          } });
+      }(), t.exports = function (n) {
+        return n.name;
+      };
+    }, { noop6: 3 }], 3: [function (n, t) {
+      t.exports = function () {};
+    }, {}], 4: [function (n, t) {
+      function e(n, t) {
+        return 2 === arguments.length ? e.is(n, t) : e.get(n, !0);
+      }n("function.name"), e.is = function (n, t) {
+        return e.get(n, "string" == typeof t) === t;
+      }, e.get = function (n, t) {
+        return "string" == typeof n ? t ? "string" : String : null === n ? t ? "null" : null : void 0 === n ? t ? "undefined" : void 0 : n !== n ? t ? "nan" : 0 / 0 : t ? n.constructor.name.toLowerCase() : n.constructor;
+      }, t.exports = e;
+    }, { "function.name": 2 }] }, {}, [1])(1);
+});

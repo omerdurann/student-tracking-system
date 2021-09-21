@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/images/Lacivert.png" type="image/x-icon" />
+    <title>Eğitim Yıldızı</title>
+
+    <!-- Bootstrap Core and vandor -->
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Core css -->
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+    <script src="html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+</head>
+
+<body class="font-muli dark-mode gradient right_tb_toggle">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+        </div>
+    </div>
+
+    <div id="main_content">
+        <!-- Start Main top header -->
+        <div id="header_top" class="header_top">
+            <div class="container">
+                <div class="hleft">
+                    <a class="header-brand" href="index"><i class="fa fa-graduation-cap brand-logo"></i></a>
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" class="nav-link icon menu_toggle"><i
+                                class="fe fe-align-center"></i></a>
+                    </div>
+                </div>
+                <div class="hright">
+                    <a href="logout" class="nav-link icon settingbar"><i class="fe fe-power"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Start Main leftbar navigation -->
+        <div id="left-sidebar" class="sidebar">
+            <h5 class="brand-name">Eğitim Yıldızı<a href="javascript:void(0)" class="menu_option float-right"><i
+                        class="icon-grid font-16" data-toggle="tooltip" data-placement="left"
+                        title="Grid & List Toggle"></i></a></h5>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu-uni">Menü</a></li>
+            </ul>
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="menu-uni" role="tabpanel">
+                    <nav class="sidebar-nav">
+                        <ul class="metismenu">
+                            <li><a href="index"><i class="fa fa-dashboard"></i><span>Ana Sayfa</span></a>
+                            </li>
+                            <li><a href="students"><i class="fa fa-users"></i><span>Öğrenciler</span></a></li>
+                            <li><a href="courses"><i class="fa fa-book"></i><span>Kütüphane</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Start project content area -->
+        <div class="page">
+            <!-- Start Page header -->
+            <div class="section-body" id="page_top">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Page title and tab -->
+            <div class="section-body">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="header-action">
+                            <h1 class="page-title">Raporlama</h1>
+                            <ol class="breadcrumb page-breadcrumb">
+                                <li class="breadcrumb-item"><a>Eğitim Yıldızı</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Raporlama</li>
+                            </ol>
+                        </div>
+                        <ul class="nav nav-tabs page-header-tab">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                    href="#report">Raporlama</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--Filitreleme-->
+            <form action="raporla?id={{id}}" method="post">
+                <div class="section-body mt-4">
+                    <div class="container-fluid">
+                        <div class="table-responsive card">
+                            <div class="card-header">
+                                <h3><i class="fa fa-book"></i>
+                                    Raporlama</h3>
+                                <div class="card-options ">
+                                    <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
+                                            class="fe fe-chevron-up"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-body" style="padding: 30px;">
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Ders Raporlama <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-md-7">
+                                        <div class="custom-controls-stacked">
+                                            {{#each ders}}
+                                            <label class="custom-control custom-checkbox custom-control-inline">
+                                                <input type="checkbox" class="custom-control-input" name="kit_ders"
+                                                    value="{{ders}}">
+                                                <span class="custom-control-label">{{ders}}</span>
+                                            </label>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Konu Raporla <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-md-7">
+                                        <div id="accordion">
+                                            {{#each konu}}
+                                            <div class="card">
+                                                <div class="card-header" id="headingOne{{@key}}">
+                                                    <h5 class="mb-0">
+                                                        <button type="button" class="btn btn-link text-light"
+                                                            data-toggle="collapse" data-target="#collapseOne{{@key}}"
+                                                            aria-expanded="true" aria-controls="collapseOne{{@key}}">
+                                                            {{ders}}
+                                                        </button>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapseOne{{@key}}" class="collapse"
+                                                    aria-labelledby="headingOne{{@key}}" data-parent="#accordion">
+                                                    <div class="table-responsive">
+                                                        <table
+                                                            class="table table-hover table-striped table-vcenter text-nowrap mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Konu</th>
+                                                                    <th>Raporla</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {{#each içerik}}
+                                                                <tr>
+                                                                    <td class="width45">{{@index}}</td>
+                                                                    <td>{{konuadi}}</td>
+                                                                    <td>
+                                                                        <div class="custom-controls-stacked">
+                                                                            <label
+                                                                                class="custom-control custom-checkbox custom-control-inline">
+                                                                                <input type="checkbox"
+                                                                                    class="custom-control-input"
+                                                                                    name="konu_adi" value="{{konuadi}}">
+                                                                                <span
+                                                                                    class="custom-control-label">Raporla</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                {{/each}}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Tarih <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-md-7">
+                                        <div class="input-daterange input-group" data-provide="datepicker">
+                                            <input type="text" class="form-control" name="start" autocomplete="off">
+                                            <span class="input-group-addon"> to </span>
+                                            <input type="text" class="form-control" name="end" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="padding: 30px;">
+                                <button type="submit" class="btn text-white bg-warning ">Raporla</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="section-body mt-4" style="font-family: 'Poppins', sans-serif;">
+                <div class="container-fluid">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="report" role="tabpanel">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Rapor</h3>
+                                            <div class="card-options">
+                                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
+                                                        class="fe fe-chevron-up"></i></a>
+                                                <a href="#" class="card-options-fullscreen"
+                                                    data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body" id="table2">
+                                            <div class="table-responsive table-bordered" id="tblinfo">
+                                                <table class="table table-striped" id="table1">
+                                                    <thead id="table3">
+                                                        <tr>
+                                                            <th colspan="12" style="padding: 50px;">
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <img src="/assets/images/blue.png" alt=""
+                                                                                width="200">
+                                                                        </div>
+                                                                        <div class="col-sm" style="padding: 50px;">
+                                                                            {{#each ogrenci}}
+                                                                            <h3 class="text-center"
+                                                                                style="color:#64b3f4;" id="rapor">
+                                                                                {{adı}} {{soyisim}}</h3>
+                                                                            <h4 class="text-center"
+                                                                                style="color:#64b3f4;">Öğrenci Raporu
+                                                                            </h4>
+                                                                            {{/each}}
+                                                                            <h6 class="text-center" name="date"
+                                                                                style="color:#64b3f4;"
+                                                                                class="text-right">{{bastar}}-{{bittar}}
+                                                                            </h6>
+
+                                                                        </div>
+                                                                        <div class="col-sm text-right">
+                                                                            <img src="/assets/images/blue.png" alt=""
+                                                                                width="200">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    {{#each all}}
+                                                    <tbody class="text-center" id="id{{@index}}">
+                                                        <tr>
+                                                            <th class="text-center" colspan="12"
+                                                                style="padding: 30px; color:#f79d00;">
+                                                                <h5>{{ders}}</h5>
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th style="color:#64b3f4;">Çalışılan Konular</th>
+                                                            <th style="color:#64b3f4;">Kitap</th>
+                                                            <th style="color:#64b3f4;">Doğru</th>
+                                                            <th style="color:#64b3f4;">Yanlış</th>
+                                                            <th style="color:#64b3f4;">Boş</th>
+                                                            <th style="color:#64b3f4;">Toplam</th>
+                                                        </tr>
+                                                        {{#each rapor}}
+                                                        <tr>
+                                                            <td>{{alt_baslik}}</td>
+                                                            <td>{{kit_adı}}</td>
+                                                            <td>{{dogru}}</td>
+                                                            <td>{{yanlıs}}</td>
+                                                            <td>{{bos}}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        {{/each}}
+                                                        <tr>
+                                                            <td colspan="2">Toplam Soru Sayısı </td>
+                                                            <td><a id="doğru{{@index}}"></td>
+                                                            <td><a id="yanlıs{{@index}}"></td>
+                                                            <td><a id="bos{{@index}}"></td>
+                                                            <td><a id="total{{@index}}"></td>
+                                                        </tr>
+                                                        {{/each}}
+                                                        <tr></tr>
+                                                        <td colspan="12" style="padding: 50px;">
+                                                            <h3>Genel Toplam Soru Sayısı = <a id="totalsum"></h3>
+                                                        </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" style="padding:30px;">
+                                            <button type="button" class="btn text-white bg-success"
+                                                    onClick="printToPDF();"><i class="fa fa-print mr-2"></i>İndir</button>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var table = document.getElementById("table1"),
+            sum, sumVal, rows, k = 0,
+            totalsum = 0
+        alltop = 0;
+        for (var j = 0; j < table.getElementsByTagName("tbody").length; j += 1) {
+            rows = table.getElementsByTagName("tbody")[j].rows
+            console.log(rows)
+            sumVal = 0
+            var sum1 = 0
+            var sum2 = 0
+            var sum3 = 0
+            for (var i = 0; i < rows.length - 1; i++) {
+                console.log(i)
+                sum = 0
+                if (rows[i].getElementsByTagName("td")[2] && typeof rows[i].getElementsByTagName("a")[2] != 'object') {
+                    sum1 += parseInt(rows[i].getElementsByTagName("td")[2].innerHTML)
+                    sum += parseInt(rows[i].getElementsByTagName("td")[2].innerHTML)
+                    if(rows[i].getElementsByTagName('td')[3].innerHTML){
+                    sum2+=parseInt(rows[i].getElementsByTagName("td")[3].innerHTML)
+                    sum +=parseInt(rows[i].getElementsByTagName("td")[3].innerHTML)
+                    }
+                    if (rows[i].getElementsByTagName('td')[4].innerHTML) {
+                        sum3 += parseInt(rows[i].getElementsByTagName("td")[4].innerHTML)
+                        sum += parseInt(rows[i].getElementsByTagName("td")[4].innerHTML)
+                    }
+                    rows[i].getElementsByTagName("td")[5].innerHTML = sum
+                    console.log(rows[i].getElementsByTagName("td")[5])
+                    sumVal += sum
+                }
+
+            }
+            totalsum += sumVal
+            document.getElementById("total" + k).innerHTML = sumVal;
+            document.getElementById("doğru" + k).innerHTML = sum1;
+            document.getElementById("yanlıs" + k).innerHTML = sum2;
+            document.getElementById("bos" + k).innerHTML = sum3;
+            k++
+        }
+        document.getElementById('totalsum').innerHTML = totalsum
+        console.log(totalsum)
+    </script>
+   <script>
+        function printToPDF() {
+ console.log('converting...');
+  var printableArea = document.getElementById('table1');
+
+  html2canvas(printableArea, {
+    useCORS: true,
+    onrendered: function(canvas) {
+
+      var pdf = new jsPDF('p', 'pt', 'a4');
+
+      var pageHeight = 2130;
+      var pageWidth = 2000;
+      for (var i = 0; i <= printableArea.clientHeight / pageHeight; i++) {
+
+        console.log()
+        var srcImg = canvas;
+        var sX = 0;
+        var sY = pageHeight * i; // start 1 pageHeight down for every new page
+        var sWidth = pageWidth;
+        var sHeight = pageHeight;
+        var dX = 0; 
+        var dY = 0;
+        var dWidth = pageWidth;
+        var dHeight = pageHeight;
+
+        window.onePageCanvas = document.createElement("canvas");
+        onePageCanvas.setAttribute('width', pageWidth);
+        onePageCanvas.setAttribute('height', pageHeight);
+        var ctx = onePageCanvas.getContext('2d');
+        ctx.drawImage(srcImg, sX, sY, sWidth, sHeight, dX, dY, dWidth, dHeight);
+
+        var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+        var width = onePageCanvas.width;
+        var height = onePageCanvas.clientHeight;
+
+        if (i > 0) // if we're on anything other than the first page, add another page 
+          pdf.addPage('a4'); // 8.5" x 11" in pts (inches*72)
+
+        pdf.setPage(i + 1); // now we declare that we're working on that page
+        pdf.addImage(canvasDataURL, 'PNG', 10, 20, (width * .37), (height * .62)); // add content to the page
+        
+
+      }
+      pdf.save('rapor.pdf');
+    }
+  });
+}
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+
+
+    
+
+    <script>
+        function printtable() {
+            var table = document.getElementById('table1')
+
+            newWin = window.open("");
+            newWin.document.write(table.outerHTML);
+            newWin.print();
+            newWin.close();
+            console.log(table)
+        }
+    </script>
+
+
+    <!-- Start Main project js, jQuery, Bootstrap -->
+    <script src="/assets/bundles/lib.vendor.bundle.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js">
+    </script>
+
+    <!-- Start project main js  and page js -->
+    <script src="/assets/js/core.js"></script>
+
+    <!-- Start Plugin Js -->
+    <script src="/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+</html>

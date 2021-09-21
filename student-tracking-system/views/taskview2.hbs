@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/images/Lacivert.png" type="image/x-icon" />
+    <title>Eğitim Yıldızı</title>
+
+    <!-- Bootstrap Core and vandor -->
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Core css -->
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+</head>
+
+<body class="font-muli dark-mode gradient right_tb_toggle">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+        </div>
+    </div>
+
+    <div id="main_content">
+        <!-- Start Main top header -->
+        <div id="header_top" class="header_top">
+            <div class="container">
+                <div class="hleft">
+                    <a class="header-brand" href="index"><i class="fa fa-graduation-cap brand-logo"></i></a>
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" class="nav-link icon menu_toggle"><i
+                                class="fe fe-align-center"></i></a>
+                    </div>
+                </div>
+                <div class="hright">
+                    <a href="javascript:void(0)" class="nav-link icon right_tab"><i class="fe fe-align-right"></i></a>
+                    <a href="logout" class="nav-link icon settingbar"><i class="fe fe-power"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Start Main leftbar navigation -->
+        <div id="left-sidebar" class="sidebar">
+            <h5 class="brand-name">Eğitim Yıldızı<a href="javascript:void(0)" class="menu_option float-right"><i
+                        class="icon-grid font-16" data-toggle="tooltip" data-placement="left"
+                        title="Grid & List Toggle"></i></a></h5>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu-uni">Menü</a></li>
+            </ul>
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="menu-uni" role="tabpanel">
+                    <nav class="sidebar-nav">
+                        <ul class="metismenu">
+                            <li><a href="index"><i class="fa fa-dashboard"></i><span>Ana Sayfa</span></a>
+                            </li>
+                            <li><a href="students"><i class="fa fa-users"></i><span>Öğrenciler</span></a></li>
+                            <li><a href="courses"><i class="fa fa-book"></i><span>Kütüphane</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Start project content area -->
+        <div class="page">
+            <!-- Start Page header -->
+            <div class="section-body" id="page_top">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Page title and tab -->
+            <div class="section-body">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="header-action">
+                            <h1 class="page-title">Ödev</h1>
+                            <ol class="breadcrumb page-breadcrumb">
+                                <li class="breadcrumb-item"><a>Eğitim Yıldızı</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Ödev</li>
+                            </ol>
+                        </div>
+                        <ul class="nav nav-tabs page-header-tab">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#task-view">Ödev</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="section-body mt-4" style="font-family: 'Poppins', sans-serif;">
+                <div class="container-fluid">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="task-view" role="tabpanel">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="card">
+                                        <form action="gun?id={{ögr_id}},{{date}}" method="POST">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Ders Programı</h3>
+                                                <div class="card-options">
+                                                    <a href="#" class="card-options-collapse"
+                                                        data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                                    <a href="#" class="card-options-fullscreen"
+                                                        data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="card-body" id="table1">
+                                                <div class="table-responsive table-bordered" id="t">
+                                                <div id="tabl">
+                                                    <table class="table table-striped" id="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="12" style="padding: 50px;">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            
+                                                                            <div class="col-sm text-center"
+                                                                                style="padding: 50px;">
+                                                                                <h3 style="color:#64b3f4;" id="rapor">
+                                                                                    {{adı}}</h3>
+                                                                                <h5 style="color:#64b3f4">Ders Çalışma
+                                                                                    Programı</h5>
+                                                                                <h6 name="date" style="color:#64b3f4">
+                                                                                    {{date}}</h6>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        {{#each allmat}}
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <th class="text-center" colspan="12"
+                                                                    style="padding: 30px; color:#f79d00;">
+                                                                    <h4>{{ders}}</h4>
+                                                                </th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th style="color:#64b3f4;">Konu</th>
+                                                                <th style="color:#64b3f4;">Kitap</th>
+                                                                <th style="color:#64b3f4;">Test</th>
+                                                                <th style="color:#64b3f4;">Sayfa</th>
+                                                                <th style="color:#64b3f4;">Soru Sayısı</th>
+                                                                <th style="color:#64b3f4;">Doğru</th>
+                                                                <th style="color:#64b3f4;">Yanlış</th>
+                                                                <th style="color:#64b3f4;">Boş</th>
+                                                            </tr>
+                                                            {{#each ödev}}
+                                                            {{#each ödv}}
+                                                            <tr>
+                                                                <td>{{alt_baslik}}</td>
+                                                                <td>{{kit_adi}}</td>
+                                                                <td>{{test_adi}}</td>
+                                                                <td>{{sayfa}}</td>
+                                                                <td>{{soru_sayisi}}</td>
+                                                                <td>
+                                                                    <input type="text" name="{{_id}}"
+                                                                        class="form-control" maxlength="4" size="4"
+                                                                        style="color: #7d8490;" autocomplete="off">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="{{_id}}"
+                                                                        class="form-control" maxlength="4" size="4"
+                                                                        style="color: #7d8490;" autocomplete="off">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="{{_id}}"
+                                                                        class="form-control" maxlength="4" size="4"
+                                                                        style="color: #7d8490;" autocomplete="off">
+                                                                </td>
+                                                            </tr>
+                                                            {{/each}}
+                                                            {{/each}}
+                                                            <tr>
+                                                                <td colspan="12" class="text-right"
+                                                                    style="padding-right: 100px;">Toplam Soru Sayısı =
+                                                                    <a id="total{{@index}}">
+                                                                </td>
+                                                            </tr>
+                                                            {{/each}}
+                                                            <tr>
+                                                                <td class="text-center" colspan="12"
+                                                                    style="padding: 50px;">
+                                                                    <h5>Günlük Toplam Soru Sayısı = <a id="total"></a>
+                                                                    </h5>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-left" colspan="12"
+                                                                    style="padding: 50px;">
+                                                                    <h5 style="color: #64b3f4;">Ödev Notu </h5>
+                                                                    {{#each acıklama}}
+                                                                    <p class="text-lowercase">
+                                                                        {{#each açıklama}}
+                                                                        <h6>{{kit_adi}} : {{ödv_açıklama}}</h6>
+                                                                        {{/each}}
+                                                                    </p>
+                                                                    {{/each}}
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12" style="padding: 30px;">
+                                                <button type="submit" class="btn btn-danger"><i
+                                                        class="fe fe-check mr-2"></i>Tamamla</button>
+                                                <button type="button" class="btn text-white bg-success"
+                                                    onClick="printToPDF();"><i class="fa fa-print mr-2"></i>İndir</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+    <script>
+        function printtable() {
+            var table = document.getElementById('table1')
+            window.frames["print_frame"].document.body.innerHTML = document.getElementById("table1").innerHTML;
+         window.frames["print_frame"].window.focus();
+         window.frames["print_frame"].window.print();
+        }
+    </script>
+
+    <script>
+        function printToPDF() {
+ console.log('converting...');
+  var printableArea = document.getElementById('table1');
+
+  html2canvas(printableArea, {
+    useCORS: true,
+    onrendered: function(canvas) {
+
+      var pdf = new jsPDF('p', 'pt', 'a4' );
+
+      var pageHeight = 2130;
+      var pageWidth = printableArea.clientWidth+10;
+      for (var i = 0; i <= printableArea.clientHeight / pageHeight; i++) {
+        var srcImg = canvas;
+        var sX = 0;
+        var sY = pageHeight * i; // start 1 pageHeight down for every new page
+        var sWidth = pageWidth;
+        var sHeight = pageHeight;
+        var dX = 0; 
+        var dY = 0;
+        var dWidth = pageWidth;
+        var dHeight = pageHeight;
+
+        window.onePageCanvas = document.createElement("canvas");
+        onePageCanvas.setAttribute('width', pageWidth);
+        onePageCanvas.setAttribute('height', pageHeight);
+        var ctx = onePageCanvas.getContext('2d');
+        ctx.drawImage(srcImg, sX, sY, sWidth, sHeight, dX, dY, dWidth, dHeight);
+
+        var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+        var width = onePageCanvas.width;
+        var height = onePageCanvas.clientHeight;
+        console.log(width)
+        console.log(height)
+
+        if (i > 0) // if we're on anything other than the first page, add another page
+          pdf.addPage('a4'); // 8.5" x 11" in pts (inches*72)
+
+        pdf.setPage(i + 1); // now we declare that we're working on that page
+        pdf.addImage(canvasDataURL, 'PNG',0,0 ,pdf.internal.pageSize.width-10, pdf.internal.pageSize.height); // add content to the page
+        
+
+      }
+      pdf.save('rapor.pdf');
+    }
+  });
+}
+    </script>
+
+    <script>
+        var table = document.getElementById("table"),
+            sumVal, rows, k = 0,
+            alltop = 0;
+
+        for (var j = 0; j < table.getElementsByTagName("tbody").length; j += 1) {
+            rows = table.getElementsByTagName("tbody")[j].rows
+            sumVal = 0
+            for (var i = 0; i < rows.length - 1; i++) {
+                if (rows[i].getElementsByTagName("td")[4]) {
+                    sumVal += parseInt(rows[i].getElementsByTagName("td")[4].innerHTML);
+                }
+            }
+            alltop += sumVal
+            document.getElementById("total" + k).innerHTML = sumVal;
+            k++
+        }
+        document.getElementById("total").innerHTML = alltop;
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js">
+    </script>
+
+
+    <!-- Start Main project js, jQuery, Bootstrap -->
+    <script src="/assets/bundles/lib.vendor.bundle.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js">
+    </script>
+    <!-- Start project main js  and page js -->
+    <script src="/assets/js/core.js"></script>
+</body>
+
+</html>

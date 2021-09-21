@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/images/Lacivert.png" type="image/x-icon" />
+    <title>Eğitim Yıldızı</title>
+
+    <!-- Bootstrap Core and vandor -->
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Core css -->
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+</head>
+
+<body class="font-muli dark-mode gradient right_tb_toggle">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+        </div>
+    </div>
+    <div id="main_content">
+        <!-- Start Main top header -->
+        <div id="header_top" class="header_top">
+            <div class="container">
+                <div class="hleft">
+                    <a class="header-brand" href="index"><i class="fa fa-graduation-cap brand-logo"></i></a>
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" class="nav-link icon menu_toggle"><i
+                                class="fe fe-align-center"></i></a>
+                    </div>
+                </div>
+                <div class="hright">
+                    <a href="logout" class="nav-link icon settingbar"><i class="fe fe-power"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Start Main leftbar navigation -->
+        <div id="left-sidebar" class="sidebar">
+            <h5 class="brand-name">Eğitim Yıldızı<a href="javascript:void(0)" class="menu_option float-right"><i
+                        class="icon-grid font-16" data-toggle="tooltip" data-placement="left"
+                        title="Grid & List Toggle"></i></a></h5>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu-uni">Menü</a></li>
+            </ul>
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="menu-uni" role="tabpanel">
+                    <nav class="sidebar-nav">
+                        <ul class="metismenu">
+                            <li><a href="index"><i class="fa fa-dashboard"></i><span>Ana Sayfa</span></a>
+                            </li>
+                            <li><a href="students"><i class="fa fa-users"></i><span>Öğrenciler</span></a></li>
+                            <li><a href="courses"><i class="fa fa-book"></i><span>Kütüphane</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Start project content area -->
+        <div class="page">
+            <!-- Start Page header -->
+            <div class="section-body" id="page_top">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Page title and tab -->
+            <div class="section-body">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="header-action">
+                            <h1 class="page-title">İçerik Ekle</h1>
+                            <ol class="breadcrumb page-breadcrumb">
+                                <li class="breadcrumb-item"><a>Eğitim Yıldızı</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">İçerik Ekle</li>
+                            </ol>
+                        </div>
+                        <ul class="nav nav-tabs page-header-tab">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                    href="#admin-Dashboard">İçerik Ekle</a></li>
+                        </ul>
+                    </div>
+                    <div class="section-body mt-4">
+                        <div class="container-fluid">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="Student-add">
+                                    <div class="row clearfix">
+                                        <div class="col-lg-4 col-md-12 col-sm-12">
+                                            <!--Sınıf Ekleme-->
+                                            <form action="/sinifekle" method="POST" autocomplete="off">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Sınıf Ekleme</h3>
+                                                        <div class="card-options ">
+                                                            <a href="#" class="card-options-collapse"
+                                                                data-toggle="card-collapse"><i
+                                                                    class="fe fe-chevron-up"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row clearfix">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <label>Sınıf Giriniz</label>
+                                                                    <input type="text" name="sınıf_add"
+                                                                        class="form-control" style="color: #7d8490;">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Ekle</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <!--Sınıf Ekleme-->
+                                            <!--Ders Ekleme-->
+                                            <form action="ders_add" method="POST" autocomplete="off">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Ders Ekleme</h3>
+                                                        <div class="card-options ">
+                                                            <a href="#" class="card-options-collapse"
+                                                                data-toggle="card-collapse"><i
+                                                                    class="fe fe-chevron-up"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <div class="form-group">
+                                                            <label>Ders Adı</label>
+                                                            <input type="text" name="ders_add" class="form-control"
+                                                                style="color: #7d8490;">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Ekle</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!--Ders Ekleme-->
+                                        <!--Konu Ekleme-->
+                                        <div class="col-lg-8 col-md-12 col-sm-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Konu Ekle</h3>
+                                                    <div class="card-options ">
+                                                        <a href="#" class="card-options-collapse"
+                                                            data-toggle="card-collapse"><i
+                                                                class="fe fe-chevron-up"></i></a>
+                                                    </div>
+                                                </div>
+                                                <form action="konuadd" class="card-body" method="POST"
+                                                    autocomplete="off">
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Ders <span
+                                                                class="text-danger">*</span></label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control input-height" name="ders"
+                                                                style="color:#7d8490;">
+                                                                <option value="mesaj">Lütfen Ders Seçiniz...</option>
+                                                                {{#each allders}}
+                                                                <option value={{_id}}>{{ders}}</option>
+                                                                {{/each}}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Konu Adı <span
+                                                                class="text-danger">*</span></label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" class="form-control" name="konu_adi"
+                                                                style="color: #7d8490;">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="col-sm-12">
+                                                        <button type="submit"
+                                                            class="btn bg-red text-white">Ekle</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Alt Konu Ekle</h3>
+                                                    <div class="card-options ">
+                                                        <a href="#" class="card-options-collapse"
+                                                            data-toggle="card-collapse"><i
+                                                                class="fe fe-chevron-up"></i></a>
+                                                    </div>
+                                                </div>
+                                                {{!-- altkonu kısmı --}}
+                                                <form action="altkonuadd" class="card-body" method="POST"
+                                                    autocomplete="off">
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Konu <span
+                                                                class="text-danger">*</span></label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control input-height" name="konu_adi"
+                                                                style="color:#7d8490;">
+                                                                <option value="mesaj">Lütfen Konu Seçiniz...</option>
+                                                                {{#each allkonu}}
+                                                                <option value={{_id}}>{{konuadi}}</option>
+                                                                {{/each}}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Alt Konu Adı <span
+                                                                class="text-danger">*</span></label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" class="form-control" name="alt_konu_adi"
+                                                                style="color: #7d8490;">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="col-sm-12">
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Ders Seciniz</button>
+                                                        <button type="submit"
+                                                            class="btn bg-red text-white">Ekle</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!--Konu Ekleme-->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Ders Seciniz</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/derssec" method="POST">
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Dersler:</label>
+                                                    <select class="form-control input-height" name="ders"
+                                                    style="color:#7d8490;">
+                                                    <option value="mesaj">Lütfen Ders Seçiniz...</option>
+                                                    {{#each allders}}
+                                                    <option value={{_id}}>{{ders}}</option>
+                                                    {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Seç</button>
+                                            </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Start Main project js, jQuery, Bootstrap -->
+    <script src="/assets/bundles/lib.vendor.bundle.js"></script>
+
+    <!-- Start project main js  and page js -->
+    <script src="/assets/js/core.js"></script>
+</body>
+
+</html>

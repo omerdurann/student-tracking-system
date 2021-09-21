@@ -1,0 +1,29 @@
+{
+  "name": "huseyin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "huseyin bitikci",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "match": "^1.2.10",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.15",
+    "multer": "^1.4.2",
+    "sharp": "^0.28.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "description": ""
+}
